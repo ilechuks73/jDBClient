@@ -43,6 +43,19 @@ function SignInForm({setShowSignUp}) {
       />
      </MuiGrid>
      <MuiGrid item>
+     <MuiFormControlLabel
+        control={
+          <MuiCheckbox
+            checked={state.checkedB}
+            onChange={handleChange}
+            name="checkedB"
+            color="primary"
+          />
+        }
+        label="Primary"
+      />
+     </MuiGrid>
+     <MuiGrid item>
       <MuiButton color={"primary"} variant={"contained"}>
        {"Sign In"}
       </MuiButton>
