@@ -1,5 +1,7 @@
 import React from "react";
 import {
+ FormControlLabel as MuiFormControlLabel,
+ Checkbox as MuiCheckbox,
  Button as MuiButton,
  Container as MuiContainer,
  TextField as MuiTextField,
@@ -20,25 +22,37 @@ const useStyles = MuiMakeStyles((theme) => {
  };
 });
 
-function SignUpForm({setShowSignUp}) {
+function SignInForm({ setShowSignUp }) {
  const classes = useStyles();
  return (
   <MuiContainer className={classes.container}>
    <MuiCard elevation={10} className={classes.l1}>
-    <MuiTypography variant={"h4"}>{"Sign Up"}</MuiTypography>
+    <MuiTypography variant={"h4"}>{"Sign In"}</MuiTypography>
     <MuiGrid container={true} direction={"column"} spacing={2}>
      <MuiGrid item>
-      <MuiTextField
-       name={"fullname"}
-       placeholder="Enter Fullname"
-       variant={"standard"}
-      />
+      <MuiTextField name={"email"} placeholder="Enter Email" label="E-Mail" />
      </MuiGrid>
      <MuiGrid item>
       <MuiTextField
-       name={"Email"}
-       placeholder="Enter Email"
-       variant={"standard"}
+       label="Password"
+       name={"password"}
+       type={"password"}
+       placeholder="Enter password"
+      />
+     </MuiGrid>
+     <MuiGrid item>
+      <MuiFormControlLabel
+       control={
+        <MuiCheckbox
+         checked={true}
+         onChange={() => {
+          alert("changed");
+         }}
+         name="checkedB"
+         color="primary"
+        />
+       }
+       label="Primary"
       />
      </MuiGrid>
      <MuiGrid item>
@@ -48,14 +62,14 @@ function SignUpForm({setShowSignUp}) {
      </MuiGrid>
     </MuiGrid>
     <MuiTypography>
-     {`Already have an account yet?`}
+     {`Don't have an account yet?`}
      <MuiTypography
       variant={"p"}
       onClick={() => {
-       setShowSignUp(false);
+       setShowSignUp(true);
       }}
      >
-      {" Sign In"}
+      {" Sign Up"}
      </MuiTypography>
     </MuiTypography>
    </MuiCard>
@@ -63,4 +77,4 @@ function SignUpForm({setShowSignUp}) {
  );
 }
 
-export default SignUpForm;
+export default SignInForm;

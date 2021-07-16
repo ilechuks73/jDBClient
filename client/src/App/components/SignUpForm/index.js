@@ -20,39 +20,25 @@ const useStyles = MuiMakeStyles((theme) => {
  };
 });
 
-function SignInForm({setShowSignUp}) {
+function SignUpForm({setShowSignUp}) {
  const classes = useStyles();
  return (
   <MuiContainer className={classes.container}>
    <MuiCard elevation={10} className={classes.l1}>
-    <MuiTypography variant={"h4"}>{"Sign In"}</MuiTypography>
+    <MuiTypography variant={"h4"}>{"Sign Up"}</MuiTypography>
     <MuiGrid container={true} direction={"column"} spacing={2}>
      <MuiGrid item>
       <MuiTextField
-       name={"email"}
-       placeholder="Enter Email"
-       label="E-Mail"
+       name={"fullname"}
+       placeholder="Enter Fullname"
+       variant={"standard"}
       />
      </MuiGrid>
      <MuiGrid item>
       <MuiTextField
-      label="Password"
-       name={"password"}
-       type={"password"}
-       placeholder="Enter password"
-      />
-     </MuiGrid>
-     <MuiGrid item>
-     <MuiFormControlLabel
-        control={
-          <MuiCheckbox
-            checked={state.checkedB}
-            onChange={handleChange}
-            name="checkedB"
-            color="primary"
-          />
-        }
-        label="Primary"
+       name={"Email"}
+       placeholder="Enter Email"
+       variant={"standard"}
       />
      </MuiGrid>
      <MuiGrid item>
@@ -62,14 +48,14 @@ function SignInForm({setShowSignUp}) {
      </MuiGrid>
     </MuiGrid>
     <MuiTypography>
-     {`Don't have an account yet?`}
+     {`Already have an account? `}
      <MuiTypography
       variant={"p"}
       onClick={() => {
-       setShowSignUp(true);
+       setShowSignUp(false);
       }}
      >
-      {" Sign Up"}
+      {" Sign In"}
      </MuiTypography>
     </MuiTypography>
    </MuiCard>
@@ -77,4 +63,4 @@ function SignInForm({setShowSignUp}) {
  );
 }
 
-export default SignInForm;
+export default SignUpForm;
